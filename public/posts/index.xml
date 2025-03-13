@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on Awesome Inc. Blog</title>
+    <link>https://awesome-inc.com/posts/</link>
+    <description>Recent content in Posts on Awesome Inc. Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Mar 2025 18:34:47 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://awesome-inc.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Welcome</title>
-      <link>http://localhost:1313/posts/welcome/</link>
+      <title>Welcome to Awesome Inc.</title>
+      <link>https://awesome-inc.com/posts/welcome/</link>
       <pubDate>Thu, 13 Mar 2025 18:34:47 -0500</pubDate>
-      <guid>http://localhost:1313/posts/welcome/</guid>
+      <guid>https://awesome-inc.com/posts/welcome/</guid>
       <description></description>
     </item>
   </channel>
