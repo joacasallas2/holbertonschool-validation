@@ -14,6 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: clean dist
+        run: |
+          sudo rm -rf module3_task1/dist
+
       - name: Install dependencies
         run: |
           chmod +x $GITHUB_WORKSPACE/module3_task1/setup.sh
