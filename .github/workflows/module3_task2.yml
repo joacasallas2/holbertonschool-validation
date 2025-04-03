@@ -1,0 +1,32 @@
+name: module3_task2
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '30 8 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          chmod +x $GITHUB_WORKSPACE/module3_task2/setup.sh
+          sudo $GITHUB_WORKSPACE/module3_task2/setup.sh
+
+      - name: Set correct permissions for dist directory
+        run: |
+          sudo rm -rf $GITHUB_WORKSPACE/module3_task2/dist  # Ensure a clean build
+          mkdir -p $GITHUB_WORKSPACE/module3_task2/dist
+          sudo chmod -R 777 $GITHUB_WORKSPACE/module3_task2/dist
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE/module3_task2/dist
+
+      - name: Run make build
+        run: |
+          cd $GITHUB_WORKSPACE/module3_task2/
+          make build
