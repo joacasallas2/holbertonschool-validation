@@ -55,8 +55,10 @@ echo "All dependencies installed!"
 
 echo "Current directory: $(pwd)"
 # Ensure Makefile exists before running make build
+cd module3_task1/
+echo "Current directory after cd in setup: $(pwd)"
 if [ ! -f Makefile ]; then
-    echo "❌ Error: Makefile not found! Cannot run 'make build'."
+    echo "❌ Error: Makefile not found in setup! Cannot run 'make build'."
     exit 1
 fi
 
