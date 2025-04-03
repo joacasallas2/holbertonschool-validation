@@ -2,31 +2,34 @@ name: module3_task2
 
 on:
   push:
-    branches: [main]
-  schedule:
-    - cron: '30 8 * * *'
+    branches: [main. master]
+  pull_request:
 
 jobs:
-  build:
+  continuous-delivery:
     runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          chmod +x $GITHUB_WORKSPACE/module3_task2/setup.sh
-          sudo $GITHUB_WORKSPACE/module3_task2/setup.sh
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.20'
 
-      - name: Set correct permissions for dist directory
-        run: |
-          sudo rm -rf $GITHUB_WORKSPACE/module3_task2/dist  # Ensure a clean build
-          mkdir -p $GITHUB_WORKSPACE/module3_task2/dist
-          sudo chmod -R 777 $GITHUB_WORKSPACE/module3_task2/dist
-          sudo chown -R $USER:$USER $GITHUB_WORKSPACE/module3_task2/dist
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
 
-      - name: Run make build
-        run: |
-          cd $GITHUB_WORKSPACE/module3_task2/
-          make build
+      - name: Run linting
+        run: make lint
+
+      - name: Build package
+        run: make package
+
+      - name: Archive package (only on main/master)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: awesome-website-package
+          path: awesome-website.zip
