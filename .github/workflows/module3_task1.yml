@@ -14,14 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: clean dist
-        run: |
-          sudo rm -rf module3_task1/dist
-
       - name: Install dependencies
         run: |
           chmod +x $GITHUB_WORKSPACE/module3_task1/setup.sh
           sudo $GITHUB_WORKSPACE/module3_task1/setup.sh
+
+      - name: Set correct permissions for dist directory
+        run: |
+          sudo rm -rf $GITHUB_WORKSPACE/module3_task1/dist  # Ensure a clean build
+          mkdir -p $GITHUB_WORKSPACE/module3_task1/dist
+          sudo chmod -R 777 $GITHUB_WORKSPACE/module3_task1/dist
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE/module3_task1/dist
 
       - name: Run make build
         run: |
