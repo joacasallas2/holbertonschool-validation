@@ -1,4 +1,4 @@
-name: module3_task0
+name: module3_task1
 
 on:
   push:
@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Clone the repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Execute make help.
+      - name: Install dependencies
         run: |
-          cd $GITHUB_WORKSPACE/module3_task0/
+          chmod +x $GITHUB_WORKSPACE/module3_task1/setup.sh
+          sudo $GITHUB_WORKSPACE/module3_task1/setup.sh
+
+      - name: Run make build
+        run: |
+          cd $GITHUB_WORKSPACE/module3_task1/
           make build
