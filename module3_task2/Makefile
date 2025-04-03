@@ -1,21 +1,20 @@
-.PHONY: help build clean post
+.PHONY: help build clean post lint package
 
-help: ## This is the help command
+help: ## Show this help
 	@echo "Available commands:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-15s %s\n", $$1, $$2}'
 
-# Build the binary
-build:
+
+build: ## Build the awesome-api binary
 	go build -o awesome-api
 
-# Create the package
-package: build
+
+package: build ## Create awesome-website.zip with binary and dist/
+	@mkdir -p dist
 	zip -r awesome-website.zip awesome-api dist
 
-# Clean up generated files
-clean:
+clean: ## Clean up generated files
 	rm -f awesome-api awesome-website.zip
 
-# Lint Markdown files
-lint:
+lint: ## Lint Markdown files
 	markdownlint README.md DEPLOY.md
