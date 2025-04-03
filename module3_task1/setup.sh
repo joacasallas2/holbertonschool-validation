@@ -53,6 +53,7 @@ hugo version || { echo "❌ Hugo installation failed"; exit 1; }
 
 echo "All dependencies installed!"
 
+echo "Current directory: $(pwd)"
 # Ensure Makefile exists before running make build
 if [ ! -f Makefile ]; then
     echo "❌ Error: Makefile not found! Cannot run 'make build'."
