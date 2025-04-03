@@ -12,6 +12,7 @@ build: ## Generate the hugo website
 clean: ## Cleanup the public directory
 	@echo "Cleaning the content of the public directory..."
 	rm -rf public/
+	rm -rf dist/
 
 post: ## Create a new blog post with POST_NAME as filename and title
 	@echo "Creating a new blog post: $(POST_NAME)"
