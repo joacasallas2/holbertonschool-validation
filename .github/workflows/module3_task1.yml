@@ -21,5 +21,5 @@ jobs:
 
       - name: Run make build
         run: |
-          cd $GITHUB_WORKSPACE/module3_task1/
+          cd module3_task1/
           make build
