@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    
+
     steps:
       - name: Clone the repository
         uses: actions/checkout@v4
@@ -18,6 +18,3 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/module3_task0/
           make help
-  
-  
-  
