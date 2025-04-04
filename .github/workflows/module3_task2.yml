@@ -21,6 +21,9 @@ jobs:
       - name: Install markdownlint
         run: npm install -g markdownlint-cli
 
+      - name: Debug Current Directory
+        run: pwd && ls -l
+
       - name: Run linting
         run: make lint
 
