@@ -24,8 +24,14 @@ jobs:
       - name: Debug Current Directory
         run: pwd && ls -l
 
+      - name: CD directory
+        run: cd module3_task2
+
+      - name: Debug Current Directory
+        run: pwd && ls -l
+
       - name: Run linting
-        run: cd module3_task2 & make lint
+        run: make lint
 
       - name: Build package
         run: make package
