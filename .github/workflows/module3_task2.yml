@@ -22,19 +22,17 @@ jobs:
         run: npm install -g markdownlint-cli
 
       - name: Debug Current Directory
-        run: pwd && ls -l
-
-      - name: CD directory
-        run: cd module3_task2
-
-      - name: Debug Current Directory
-        run: pwd && ls -l
+        run: pwd && ls -l      
 
       - name: Run linting
-        run: make lint
+        run: |
+          cd module3_task2
+          make lint
 
       - name: Build package
-        run: make package
+        run: |
+          cd module3_task2
+          make package
 
       - name: Archive package (only on main/master)
         if: contains('refs/heads/main refs/heads/master', github.ref)
