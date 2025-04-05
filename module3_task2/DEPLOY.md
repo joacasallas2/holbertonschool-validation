@@ -91,7 +91,7 @@ health endpoint.
   ```sh
   curl http://localhost:8080/health
 
-* **If the application is running and healthy, you should receive a response 
+* **If the application is running and healthy, you should receive a response
 like:**  
 
   ```sh
