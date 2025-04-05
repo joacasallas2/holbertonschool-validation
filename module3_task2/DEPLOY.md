@@ -8,9 +8,10 @@ The awesome-website.zip archive contains the following:
 
 * awesome-api binary: The compiled application binary.  
 * dist/: The directory containing the generated static website files  
-  (this may include HTML, CSS, JavaScript, and assets required by the website).  
+  (this may include HTML, CSS, JavaScript, and assets required by the
+  website).  
 
-### To unarchive the ZIP file:  
+### To unarchive the ZIP file  
 
 * **Download the archive to your desired location.**  
 
@@ -24,7 +25,7 @@ The awesome-website.zip archive contains the following:
 The awesome-api application can be run as a background process, and you can
 easily manage its lifecycle using the following commands.  
 
-### To start the application:  
+### To start the application  
 
 * **Navigate to the directory where awesome-api is located**  
 
@@ -39,7 +40,7 @@ easily manage its lifecycle using the following commands.
 This will start the application in the background. The application
 will listen for incoming requests on its default port  
 
-### To stop the application:  
+### To stop the application  
 
 * **Find the PID of the running application**  
 
@@ -57,7 +58,7 @@ By default, the awesome-api application writes logs to stdout
 (the terminal/console output). You can customize where logs are
 written by setting the LOG_PATH environment variable.  
 
-### To specify a custom log file location:  
+### To specify a custom log file location  
 
 * **Set the LOG_PATH environment variable to your desired file path.**  
 
@@ -66,7 +67,7 @@ written by setting the LOG_PATH environment variable.
 
 * **Restart the application to begin logging to the new location.**  
 
-* **Alternatively, you can specify the log path when starting the application:**  
+* **Alternatively, you can specify the log path when starting the application**  
 
   ```sh
   LOG_PATH="/path/to/your/logfile.log" ./awesome-api &  
@@ -76,8 +77,8 @@ default stdout.
 
 ## 4. How to “quickly” verify that the application is running (healthcheck)?  
 
-To quickly verify that the awesome-api application is running and healthy, 
-you can perform a healthcheck by sending an HTTP request to the application’s 
+To quickly verify that the awesome-api application is running and healthy,
+you can perform a healthcheck by sending an HTTP request to the application’s
 health endpoint.  
 
 ### Step-by-Step to Verify Application Status  
@@ -89,7 +90,7 @@ health endpoint.
   ```sh
   curl http://localhost:8080/health
 
-* **If the application is running and healthy, you should receive a response  
+* **If the application is running and healthy, you should receive a response
   like:**  
 
   ```sh
