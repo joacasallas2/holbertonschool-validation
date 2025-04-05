@@ -10,7 +10,6 @@ To build and run this project, install the following tools:
 - [GNU Make](https://www.gnu.org/software/make/)  
 - A compatible shell (e.g., Bash, Zsh)  
 
-
 ## Lifecycle  
 
 The project follows a Makefile-based lifecycle with these commands:  
@@ -34,7 +33,6 @@ The project follows a Makefile-based lifecycle with these commands:
 
   ```sh
   make help  
-
 
 Author:  joacasallas :🙋‍♀️  
 contact:  [joacasallas@gmail.com](mailto:joacasallas@gmail.com)
