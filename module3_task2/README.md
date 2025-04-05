@@ -29,5 +29,5 @@ The project follows a Makefile-based lifecycle with these commands:
   make help  
 
 
-## Author:  joacasallas :🙋‍♀️ 
+Author:  joacasallas :🙋‍♀️ 
 contact:  [joacasallas@gmail.com](mailto:joacasallas@gmail.com)
