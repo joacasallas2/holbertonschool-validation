@@ -67,7 +67,8 @@ written by setting the LOG_PATH environment variable.
 
 * **Restart the application to begin logging to the new location.**  
 
-* **Alternatively, you can specify the log path when starting the application**  
+* **Alternatively, you can specify the log path when starting the
+application**  
 
   ```sh
   LOG_PATH="/path/to/your/logfile.log" ./awesome-api &  
