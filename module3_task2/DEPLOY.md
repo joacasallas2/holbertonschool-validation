@@ -86,8 +86,6 @@ To quickly verify that the awesome-api application is running and healthy, you c
   ```sh
   {"status":"ok"}
   
-If the application is not responding, or the health check endpoint is not accessible, you might need to check the logs to diagnose any issues.  
-
 - **Verify using system status (optional):**  
 
   ```sh
