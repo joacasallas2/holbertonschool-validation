@@ -11,9 +11,9 @@ The awesome-website.zip archive contains the following:
 
 # To unarchive the ZIP file:  
 
-- **Download the archive to your desired location.**  
+* **Download the archive to your desired location.**  
 
-- **Unarchive the file using the following command:**  
+* **Unarchive the file using the following command:**  
 
   ```sh
   unzip awesome-website.zip -d /path/to/destination  
@@ -24,12 +24,12 @@ The awesome-api application can be run as a background process, and you can easi
 
 # To start the application:  
 
-- **Navigate to the directory where awesome-api is located:**  
+* **Navigate to the directory where awesome-api is located:**  
 
   ```sh
   cd /path/to/extracted/directory  
 
-- **Run the awesome-api binary:**  
+* **Run the awesome-api binary:**  
 
   ```sh
   ./awesome-api &  
@@ -38,12 +38,12 @@ This will start the application in the background. The application will listen f
 
 # To stop the application:  
 
-- **Find the PID of the running application:**  
+* **Find the PID of the running application:**  
 
   ```sh
   ps aux | grep awesome-api  
 
-- **Stop the application by killing its PID:**  
+* **Stop the application by killing its PID:**  
 
   ```sh
   kill <PID>  
@@ -54,14 +54,14 @@ By default, the awesome-api application writes logs to stdout (the terminal/cons
 
 # To specify a custom log file location:  
 
-- **Set the LOG_PATH environment variable to your desired file path.**  
+* **Set the LOG_PATH environment variable to your desired file path.**  
 
   ```sh
   export LOG_PATH="/path/to/your/logfile.log"  
 
-- **Restart the application to begin logging to the new location.**  
+* **Restart the application to begin logging to the new location.**  
 
-- **Alternatively, you can specify the log path when starting the application:**  
+* **Alternatively, you can specify the log path when starting the application:**  
 
   ```sh
   LOG_PATH="/path/to/your/logfile.log" ./awesome-api &  
@@ -74,19 +74,19 @@ To quickly verify that the awesome-api application is running and healthy, you c
 
 # Step-by-Step to Verify Application Status:  
 
-- **Check if the application is running**  
+* **Check if the application is running**  
 
-- **Verify health with curl**  
+* **Verify health with curl**  
 
   ```sh
   curl http://localhost:8080/health
 
-- **If the application is running and healthy, you should receive a response like:**  
+* **If the application is running and healthy, you should receive a response like:**  
 
   ```sh
   {"status":"ok"}
   
-- **Verify using system status (optional):**  
+* **Verify using system status (optional):**  
 
   ```sh
   ps aux | grep awesome-api
