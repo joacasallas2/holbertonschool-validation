@@ -7,24 +7,26 @@ This project is a Hugo-powered static site managed using GNU Make.:
 The awesome-website.zip archive contains the following:  
 
 * awesome-api binary: The compiled application binary.  
-* dist/: The directory containing the generated static website files (this may include HTML, CSS, JavaScript, and assets required by the website).  
+* dist/: The directory containing the generated static website files  
+  (this may include HTML, CSS, JavaScript, and assets required by the website).  
 
-# To unarchive the ZIP file:  
+### To unarchive the ZIP file:  
 
 * **Download the archive to your desired location.**  
 
-* **Unarchive the file using the following command:**  
+* **Unarchive the file using the following command**  
 
   ```sh
   unzip awesome-website.zip -d /path/to/destination  
 
 ## 2. What are the commands to start and stop the application?  
 
-The awesome-api application can be run as a background process, and you can easily manage its lifecycle using the following commands.  
+The awesome-api application can be run as a background process, and you can
+easily manage its lifecycle using the following commands.  
 
-# To start the application:  
+### To start the application:  
 
-* **Navigate to the directory where awesome-api is located:**  
+* **Navigate to the directory where awesome-api is located**  
 
   ```sh
   cd /path/to/extracted/directory  
@@ -34,25 +36,28 @@ The awesome-api application can be run as a background process, and you can easi
   ```sh
   ./awesome-api &  
 
-This will start the application in the background. The application will listen for incoming requests on its default port  
+This will start the application in the background. The application
+will listen for incoming requests on its default port  
 
-# To stop the application:  
+### To stop the application:  
 
-* **Find the PID of the running application:**  
+* **Find the PID of the running application**  
 
   ```sh
   ps aux | grep awesome-api  
 
-* **Stop the application by killing its PID:**  
+* **Stop the application by killing its PID**  
 
   ```sh
   kill <PID>  
 
 ## 3. How to customize where the application logs are written?  
 
-By default, the awesome-api application writes logs to stdout (the terminal/console output). You can customize where logs are written by setting the LOG_PATH environment variable.  
+By default, the awesome-api application writes logs to stdout
+(the terminal/console output). You can customize where logs are
+written by setting the LOG_PATH environment variable.  
 
-# To specify a custom log file location:  
+### To specify a custom log file location:  
 
 * **Set the LOG_PATH environment variable to your desired file path.**  
 
@@ -66,13 +71,16 @@ By default, the awesome-api application writes logs to stdout (the terminal/cons
   ```sh
   LOG_PATH="/path/to/your/logfile.log" ./awesome-api &  
 
-This will ensure that logs are written to the specified log file instead of the default stdout.  
+This will ensure that logs are written to the specified log file instead of the
+default stdout.  
 
 ## 4. How to “quickly” verify that the application is running (healthcheck)?  
 
-To quickly verify that the awesome-api application is running and healthy, you can perform a healthcheck by sending an HTTP request to the application’s health endpoint.  
+To quickly verify that the awesome-api application is running and healthy, 
+you can perform a healthcheck by sending an HTTP request to the application’s 
+health endpoint.  
 
-# Step-by-Step to Verify Application Status:  
+### Step-by-Step to Verify Application Status  
 
 * **Check if the application is running**  
 
@@ -81,7 +89,8 @@ To quickly verify that the awesome-api application is running and healthy, you c
   ```sh
   curl http://localhost:8080/health
 
-* **If the application is running and healthy, you should receive a response like:**  
+* **If the application is running and healthy, you should receive a response  
+  like:**  
 
   ```sh
   {"status":"ok"}
