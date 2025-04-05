@@ -18,12 +18,15 @@ The project follows a Makefile-based lifecycle with these commands:
 - **Build the website**  
   ```sh
   make build  
+
 - **Clean the public/ directory**  
   ```sh
   make clean  
+
 - **Create a new blog post**  
   ```sh
   make post POST_NAME="my-new-post"  
+  
 - **View available commands**  
   ```sh
   make help  
