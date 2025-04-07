@@ -22,7 +22,13 @@ jobs:
         run: npm install -g markdownlint-cli
 
       - name: Debug Current Directory
-        run: pwd && ls -l      
+        run: pwd && ls -l
+        
+      - name: make setup script executable
+        run: chmod +x $GITHUB_WORKSPACE/module3_task1/setup.sh
+
+      - name: Run custom setup script
+        run: sudo $GITHUB_WORKSPACE/module3_task1/setup.sh
 
       - name: Run linting
         run: |
