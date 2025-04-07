@@ -3,6 +3,7 @@ name: module3_task3
 on:
   push:
     branches: [main, master]
+    tags: ['*']
   pull_request:
 
 jobs:
@@ -22,7 +23,7 @@ jobs:
         run: npm install -g markdownlint-cli
 
       - name: Debug Current Directory
-        run: pwd && ls -l      
+        run: pwd && ls -l
 
       - name: Run linting
         run: |
@@ -40,3 +41,15 @@ jobs:
         with:
           name: awesome-website-package
           path: awesome-website.zip
+
+      # Only on tag push: create Release
+      - name: Create Github Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          body_path: module3_task3/DEPLOY.md
+          files: module3_task3/awesome-website.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
