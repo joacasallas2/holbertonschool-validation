@@ -25,6 +25,12 @@ jobs:
       - name: Debug Current Directory
         run: pwd && ls -l
 
+      - name: make setup script executable
+        run: chmod +x ./setup
+
+      - name: Run custom setup script
+        run: ./setup
+
       - name: Run linting
         run: |
           cd module3_task3
