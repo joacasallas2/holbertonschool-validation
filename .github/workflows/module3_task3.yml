@@ -26,10 +26,10 @@ jobs:
         run: pwd && ls -l
 
       - name: make setup script executable
-        run: chmod +x ./setup
+        run: chmod +x $GITHUB_WORKSPACE/module3_task1/setup.sh
 
       - name: Run custom setup script
-        run: ./setup
+        run: sudo $GITHUB_WORKSPACE/module3_task1/setup.sh
 
       - name: Run linting
         run: |
