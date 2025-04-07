@@ -100,4 +100,28 @@ like:**
 * **Verify using system status (optional):**  
 
   ```sh
-  ps aux | grep awesome-api
+  ps aux | grep awesome-api  
+
+## Release Process  
+
+To ensure reliable deployments and enable safe collaboration between multiple
+teams, we now use a **release-based delivery workflow**.
+
+### Releasing a new version  
+
+To create a new release:  
+
+1. **Tag your commit** with a number using
+[Semantig Versioning](https://semver.org/), e.g.:  
+
+```bash
+git tag 1.0.0
+git push origin 1.0.0
+
+2. This triggers the module3_task3 Github Actions workflow which:  
+* Builds the awesome-api binary  
+* Packages the website into awesome-website.zip.
+* Create a Github Release named after the tag (e.g.: 1.0.0) using
+  softprops/action-gh-release.
+* Attaches the generated archive to the release
+* Includes this DEPLOY.md file content in the release notes
