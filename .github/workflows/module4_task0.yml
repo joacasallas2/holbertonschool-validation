@@ -1,0 +1,80 @@
+name: module4_task0
+
+on:
+  push:
+    branches: [main, master]
+    tags: ['*']
+  pull_request:
+
+jobs:
+  continuous-delivery:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Install Hugo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hugo
+
+      - name: Debug Current Directory
+        run: pwd && ls -l
+
+      - name: Run linting
+        run: |
+          cd module4_task0
+          make lint
+
+      - name: Build project (Go + Hugo)
+        run: |
+          cd module4_task0
+          make build
+
+      - name: Build package
+        run: |
+          cd module4_task0
+          make package
+
+      - name: Archive package (only on main/master)
+        if: contains('refs/heads/main refs/heads/master', github.ref)
+        uses: actions/upload-artifact@v4
+        with:
+          name: awesome-website-package
+          path: module4_task0/awesome-website.zip
+
+      # Only on tag push: create Release
+      - name: Create Github Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          body_path: module4_task0/DEPLOY.md
+          files: module4_task0/awesome-website.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './module4_task0/dist'
+          production-deploy: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GITHUB ACTIONS CI/CD - ${{ github.sha }}"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: ${{ github.head_ref }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
